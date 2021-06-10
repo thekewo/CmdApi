@@ -8,7 +8,7 @@ namespace CmdApi.Data
 {
     public interface ICmdApiRepository
     {
-        IEnumerable<Command> GetCommands();
+        IEnumerable<Command> GetAllCommands();
         Command GetCommandById(int id);
     }
 }
