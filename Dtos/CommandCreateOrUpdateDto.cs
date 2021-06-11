@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace CmdApi.Dtos
 {
-    public class CommandCreateDto
+    public class CommandCreateOrUpdateDto
     {
         public string HowTo { get; set; }
         public string Line { get; set; }

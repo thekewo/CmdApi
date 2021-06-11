@@ -52,7 +52,7 @@ namespace CmdApi.Controllers
 
         //POST /api/commands
         [HttpPost]
-        public ActionResult<CommandReadDto> CreateCommand(CommandCreateDto commandCreateDto)
+        public ActionResult<CommandReadDto> CreateCommand(CommandCreateOrUpdateDto commandCreateDto)
         {
             var commandModel = _mapper.Map<Command>(commandCreateDto);
 
@@ -62,6 +62,25 @@ namespace CmdApi.Controllers
             var commandReadDto = _mapper.Map<CommandReadDto>(commandModel);
 
             return CreatedAtRoute(nameof(GetCommandById), new { Id = commandReadDto.Id }, commandReadDto);
+        }
+
+        //PUT /api/commands/{id}
+        [HttpPut("{id}")]
+        public ActionResult UpdateCommand(int id, CommandCreateOrUpdateDto commandUpdateDto)
+        {
+            var commandModel = _repository.GetCommandById(id);
+
+            if(commandModel is null)
+            {
+                return NotFound();
+            }
+
+            _mapper.Map(commandUpdateDto, commandModel);
+
+            _repository.UpdateCommand(commandModel);
+            _repository.SaveChanges();
+
+            return NoContent();
         }
     }
 }

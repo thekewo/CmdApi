@@ -14,7 +14,7 @@ namespace CmdApi.Profiles
         {
             //Source -> Target
             CreateMap<Command, CommandReadDto>();
-            CreateMap<CommandCreateDto, Command>();
+            CreateMap<CommandCreateOrUpdateDto, Command>();
         }
     }
 }
