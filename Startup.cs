@@ -31,6 +31,8 @@ namespace CmdApi
 
             services.AddControllers();
 
+            services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
+
             services.AddScoped<ICmdApiRepository, SqlCmdApiRepository>();
         }
 
