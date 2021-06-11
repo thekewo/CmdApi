@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace CmdApi.Data
 {
-    public class MockCmdApiRepository : ICmdApiRepository
+    public class MockCmdApiRepository //: ICmdApiRepository
     {
         public Command GetCommandById(int id)
         {

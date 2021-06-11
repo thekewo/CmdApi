@@ -8,7 +8,9 @@ namespace CmdApi.Data
 {
     public interface ICmdApiRepository
     {
+        bool SaveChanges();
         IEnumerable<Command> GetAllCommands();
         Command GetCommandById(int id);
+        void CreateCommand(Command command);
     }
 }

@@ -12,7 +12,9 @@ namespace CmdApi.Profiles
     {
         public CommandsProfile()
         {
+            //Source -> Target
             CreateMap<Command, CommandReadDto>();
+            CreateMap<CommandCreateDto, Command>();
         }
     }
 }
